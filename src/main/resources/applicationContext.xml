@@ -17,7 +17,8 @@
           class="springCourse.PopMusic">
     </bean>
     <bean id="musicPayer"
-          class="springCourse.MusicPlayer">
+          class="springCourse.MusicPlayer"
+          scope="prototype">
         <property name="music">
             <list>
                 <ref bean="musicRockBean"/>
