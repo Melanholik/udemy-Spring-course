@@ -1,24 +1,15 @@
 package springCourse;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MusicPlayer {
-    private List<Music> music;
+    @Autowired
+    private PopMusic popMusic;
+    private ReggaeMusic reggaeMusic;
     private String name;
     private Integer volume;
-
-    public MusicPlayer() {
-        music = new ArrayList<>();
-    }
-
-    public List<Music> getMusic() {
-        return music;
-    }
-
-    public void setMusic(List<Music> music) {
-        this.music = music;
-    }
 
     public String getName() {
         return name;
@@ -36,9 +27,25 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
+    public PopMusic getPopMusic() {
+        return popMusic;
+    }
+
+    public void setPopMusic(PopMusic popMusic) {
+        this.popMusic = popMusic;
+    }
+
+    public ReggaeMusic getReggaeMusic() {
+        return reggaeMusic;
+    }
+
+    @Autowired
+    public void setReggaeMusic(ReggaeMusic reggaeMusic) {
+        this.reggaeMusic = reggaeMusic;
+    }
+
     public void playMusic() {
-        for (Music music : music) {
-            System.out.println("Playing: " + music.getSong());
-        }
+        System.out.println("Playing: " + popMusic.getSong());
+        System.out.println("Playing: " + reggaeMusic.getSong());
     }
 }
