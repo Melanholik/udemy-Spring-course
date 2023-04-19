@@ -1,13 +1,23 @@
 package springCourse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MusicPlayer {
     @Autowired
-    private PopMusic popMusic;
-    private ReggaeMusic reggaeMusic;
+    @Qualifier("popMusic")
+    private Music popMusic;
+    @Autowired
+    @Qualifier("reggaeMusic")
+    private Music reggaeMusic;
+    @Autowired
+    @Qualifier("rockMusic")
+    private Music rokMusic;
+    @Autowired
+    @Qualifier("classicalMusic")
+    private Music classicalMusic;
     private String name;
     private Integer volume;
 
@@ -27,16 +37,20 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    public PopMusic getPopMusic() {
+    public Music getPopMusic() {
         return popMusic;
     }
 
-    public void setPopMusic(PopMusic popMusic) {
-        this.popMusic = popMusic;
+    public Music getReggaeMusic() {
+        return reggaeMusic;
     }
 
-    public ReggaeMusic getReggaeMusic() {
-        return reggaeMusic;
+    public Music getRokMusic() {
+        return rokMusic;
+    }
+
+    public Music getClassicalMusic() {
+        return classicalMusic;
     }
 
     @Autowired
@@ -44,8 +58,12 @@ public class MusicPlayer {
         this.reggaeMusic = reggaeMusic;
     }
 
-    public void playMusic() {
-        System.out.println("Playing: " + popMusic.getSong());
-        System.out.println("Playing: " + reggaeMusic.getSong());
+    public void playMusic(GenreMusic genreMusic) {
+        switch (genreMusic) {
+            case POP -> System.out.println("Playing: " + popMusic.getSong());
+            case ROCK -> System.out.println("Playing: " + rokMusic.getSong());
+            case CLASSIC -> System.out.println("Playing: " + classicalMusic.getSong());
+            case REGGAE -> System.out.println("Playing: " + reggaeMusic.getSong());
+        }
     }
 }

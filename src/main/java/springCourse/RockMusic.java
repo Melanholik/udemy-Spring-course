@@ -1,9 +1,14 @@
 package springCourse;
 
-public class RockMusic implements Music, InitAndDestroy {
-    @Override
-    public String getSong() {
-        return "Люмен - Сид и Ненси";
+import org.springframework.stereotype.Component;
+
+@Component
+public class RockMusic extends AbstractMusic implements InitAndDestroy {
+
+    public RockMusic() {
+        songsList.add("ДДТ - «Это всё»");
+        songsList.add("Кино - «Кукушка»");
+        songsList.add("Алиса - «Веретено»");
     }
 
     @Override

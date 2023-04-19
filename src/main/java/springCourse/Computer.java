@@ -14,7 +14,7 @@ public class Computer {
         this.musicPlayer = musicPlayer;
     }
 
-    public void playMusic() {
-        musicPlayer.playMusic();
+    public MusicPlayer getMusicPlayer() {
+        return musicPlayer;
     }
 }
