@@ -12,20 +12,9 @@ public class ClassicalMusic extends AbstractMusic {
         songsList.add("Людвиг ван Бетховен - «Лунная соната»");
     }
 
+
     public static ClassicalMusic getClassicalMusic() {
         return new ClassicalMusic();
     }
 
-
-
-    @Override
-    public void init() {
-        super.init();
-    }
-
-
-    @Override
-    public void destroy() {
-        super.destroy();
-    }
 }

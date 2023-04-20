@@ -1,8 +1,10 @@
 package springCourse;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("prototype")
 public class RockMusic extends AbstractMusic implements InitAndDestroy {
 
     public RockMusic() {
@@ -11,13 +13,4 @@ public class RockMusic extends AbstractMusic implements InitAndDestroy {
         songsList.add("Алиса - «Веретено»");
     }
 
-    @Override
-    public void init() {
-        System.out.println("Init Rock Music");
-    }
-
-    @Override
-    public void destroy() {
-        System.out.println("Destroy Rock Music");
-    }
 }
