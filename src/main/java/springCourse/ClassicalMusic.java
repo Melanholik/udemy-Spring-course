@@ -1,12 +1,10 @@
 package springCourse;
 
 
-import org.springframework.stereotype.Component;
 
-@Component
 public class ClassicalMusic extends AbstractMusic {
 
-    private ClassicalMusic() {
+    public ClassicalMusic() {
         songsList.add("Чайковский - «Щелкунчик»");
         songsList.add("Антонио Вивальди - «Времена года»");
         songsList.add("Людвиг ван Бетховен - «Лунная соната»");

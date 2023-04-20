@@ -1,9 +1,7 @@
 package springCourse;
 
 
-import org.springframework.stereotype.Component;
 
-@Component
 public class PopMusic extends AbstractMusic {
 
     public PopMusic() {

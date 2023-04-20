@@ -1,28 +1,33 @@
 package springCourse;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
-@Component
+import java.util.List;
+import java.util.Random;
+
 public class MusicPlayer {
-    @Autowired
-    @Qualifier("popMusic")
-    private Music popMusic;
-    @Autowired
-    @Qualifier("reggaeMusic")
-    private Music reggaeMusic;
-    @Autowired
-    @Qualifier("rockMusic")
-    private Music rokMusic;
-    @Autowired
-    @Qualifier("classicalMusic")
-    private Music classicalMusic;
-    @Value("${musicPlayer.name}")
-    private String name;
+    List<Music> music;
     @Value("${musicPlayer.volume}")
     private Integer volume;
+    @Value("${musicPlayer.name}")
+    private String name;
+
+
+    public MusicPlayer(List<Music> music) {
+        this.music = music;
+    }
+
+    public List<Music> getMusic() {
+        return music;
+    }
+
+    public void setMusic(List<Music> music) {
+        this.music = music;
+    }
+
+    public Integer getVolume() {
+        return volume;
+    }
 
     public String getName() {
         return name;
@@ -32,41 +37,12 @@ public class MusicPlayer {
         this.name = name;
     }
 
-    public Integer getVolume() {
-        return volume;
-    }
-
     public void setVolume(Integer volume) {
         this.volume = volume;
     }
 
-    public Music getPopMusic() {
-        return popMusic;
-    }
-
-    public Music getReggaeMusic() {
-        return reggaeMusic;
-    }
-
-    public Music getRokMusic() {
-        return rokMusic;
-    }
-
-    public Music getClassicalMusic() {
-        return classicalMusic;
-    }
-
-    @Autowired
-    public void setReggaeMusic(ReggaeMusic reggaeMusic) {
-        this.reggaeMusic = reggaeMusic;
-    }
-
-    public void playMusic(GenreMusic genreMusic) {
-        switch (genreMusic) {
-            case POP -> System.out.println("Playing: " + popMusic.getSong());
-            case ROCK -> System.out.println("Playing: " + rokMusic.getSong());
-            case CLASSIC -> System.out.println("Playing: " + classicalMusic.getSong());
-            case REGGAE -> System.out.println("Playing: " + reggaeMusic.getSong());
-        }
+    public void playMusic() {
+        Random random = new Random();
+        System.out.println("Playing:" + music.get(random.nextInt(music.size())).getSong());
     }
 }

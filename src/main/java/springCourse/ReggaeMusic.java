@@ -1,8 +1,5 @@
 package springCourse;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class ReggaeMusic extends AbstractMusic {
 
     public ReggaeMusic() {
