@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-abstract class AbstractMusic implements Music {
+abstract class AbstractMusic implements Music, InitAndDestroy {
     List<String> songsList = new ArrayList<>();
 
     @Override
@@ -12,6 +12,14 @@ abstract class AbstractMusic implements Music {
         Random random = new Random();
         int index = random.nextInt(songsList.size());
         return songsList.get(index);
+    }
+
+    public void init() {
+        System.out.println("Init " + this.getClass().getName());
+    }
+
+    public void destroy() {
+        System.out.println("Destroy " + this.getClass().getName());
     }
 
 }

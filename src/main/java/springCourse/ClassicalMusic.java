@@ -4,7 +4,7 @@ package springCourse;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ClassicalMusic extends AbstractMusic implements InitAndDestroy {
+public class ClassicalMusic extends AbstractMusic {
 
     private ClassicalMusic() {
         songsList.add("Чайковский - «Щелкунчик»");
@@ -16,14 +16,16 @@ public class ClassicalMusic extends AbstractMusic implements InitAndDestroy {
         return new ClassicalMusic();
     }
 
+
+
     @Override
     public void init() {
-        System.out.println("Init Classical Music");
+        super.init();
     }
+
 
     @Override
     public void destroy() {
-        System.out.println("Destroy Classical Music");
-
+        super.destroy();
     }
 }

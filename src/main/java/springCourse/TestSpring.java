@@ -10,17 +10,11 @@ public class TestSpring {
 
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         musicPlayer.playMusic(GenreMusic.POP);
-        musicPlayer.playMusic(GenreMusic.POP);
-        musicPlayer.playMusic(GenreMusic.POP);
-        musicPlayer.playMusic(GenreMusic.ROCK);
-        musicPlayer.playMusic(GenreMusic.ROCK);
         musicPlayer.playMusic(GenreMusic.ROCK);
         musicPlayer.playMusic(GenreMusic.CLASSIC);
-        musicPlayer.playMusic(GenreMusic.CLASSIC);
-        musicPlayer.playMusic(GenreMusic.CLASSIC);
         musicPlayer.playMusic(GenreMusic.REGGAE);
-        musicPlayer.playMusic(GenreMusic.REGGAE);
-        musicPlayer.playMusic(GenreMusic.REGGAE);
+        System.out.println(musicPlayer.getVolume());
+        System.out.println(musicPlayer.getName());
 
 //        Music popMusic = context.getBean("popMusic", PopMusic.class);
 //        System.out.println(popMusic.getSong());
